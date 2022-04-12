@@ -4,79 +4,114 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>Document</title>
 </head>
 <body>
-    <ul>
-        <li>
+    <ul id="nav">
+        <li class="navChild">
             <a href="#">Home</a>
         </li>
-        <li>
+        <li class="navChild">
             <a href="#">Explore</a>
         </li>
-        <li>
+        <li class="navChild">
             <a href="#">Notifications</a>
         </li>
-        <li>
+        <li class="navChild">
             <a href="#">Messages</a>
         </li>
-        <li>
+        <li class="navChild">
             <a href="#">Bookmarks</a>
         </li>
-        <li>
+        <li class="navChild">
             <a href="#">Lists</a>
         </li>
-        <li> 
+        <li class="navChild"> 
            <a href="#">Profile</a>
         </li>
-        <li>
+        <li class="navChild">
             <a href="#">More</a>
         </li>
     </ul>
 
-    <h2>Isânio Vitor Félix Araujo</h2>
-    <h3>@isaniovitor</h3>
+    <div id="imageSection">
+        <img src="./img.jpg" alt="">
+        <div>
+            <button>Edit Profile</button>
+        </div>
+    </div>
 
-    <button>Edit Profile</button>
+    <h2 class="name">Isânio Vitor Félix Araujo</h2>
+    <h3 class="nickName">@isaniovitor</h3>
 
-    <ul>
-        <li>
-            <a href="#">Fortaleza</a>
-        </li>
-        <li>
-            <a href="#">Joined January 2010</a>
-        </li>
-    </ul>
-
-    <ul>
-        <li>
-            <a href="#">
-                <strong>98</strong>
-                Following
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <strong>20</strong>
-                Followers
-            </a>
-        </li>
-    </ul>
-
-    <p>
-        <img src="" alt="">
-        <p>Isânio Vitor Félix Araujo</p>
-        <p>@isaniovitor</p>
-        <p>01/02/2020</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, consectetur optio? Excepturi cum expedita eligendi nobis. Earum, nisi! Nobis quo distinctio saepe illum. Soluta repellat vitae explicabo non excepturi. Reprehenderit.</p>
+    <p id="description">
+        Lorem ipsum dolor sit voluptatem fugit, omnis incidunt facilis qui expedita reprehenderit!
     </p>
 
-    <p>
-        <img src="" alt="">
-        <p>Isânio Vitor Félix Araujo</p>
-        <p>@isaniovitor</p>
-        <p>21/02/2020</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nisi dicta possimus expedita voluptate modi doloribus alias! Pariatur placeat, ipsa, dicta eius soluta, tempore accusantium deserunt molestias laboriosam velit voluptatibus!</p>
-    </p>
+    <div>
+        <ul id="localizationSection">
+            <li class="localizationChild">
+                <a href="#">Fortaleza</a>
+            </li>
+            <li class="localizationChild">
+                <a href="#">Joined January 2010</a>
+            </li>
+        </ul>
+    
+        <ul id="statisticSection">
+            <li class="statisticChild">
+                <a href="#">
+                    <strong>98</strong>
+                    Following
+                </a>
+            </li>
+            <li class="statisticChild">
+                <a href="#">
+                    <strong>20</strong>
+                    Followers
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="tzeet">
+        <div class="tzeetHeader">
+            <div>
+                <img src="./img.jpg" alt="">
+            </div>
+            <p class="name">Isânio Vitor Félix Araujo</p>
+            <p class="nickName">@isaniovitor</p>
+            <p class="tzeetData">01/02/2020</p>       
+        </div>
+        <p class="tzeetText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, consectetur optio? Excepturi cum expedita eligendi nobis. Earum, nisi! Nobis quo distinctio saepe illum. Soluta repellat vitae explicabo non excepturi. Reprehenderit.</p>
+    </div>
+
+    <div class="tzeet">
+        <div class="tzeetHeader">
+            <div>
+                <img src="./img.jpg" alt="">
+            </div>
+            <p class="name">Isânio Vitor Félix Araujo</p>
+            <p class="nickName">@isaniovitor</p>
+            <p class="tzeetData">01/02/2020</p>       
+        </div>
+        <p class="tzeetText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, consectetur optio? Excepturi cum expedita eligendi nobis. Earum, nisi! Nobis quo distinctio saepe illum. Soluta repellat vitae explicabo non excepturi. Reprehenderit.</p>
+    </div>
+
+    <ul id="actions">
+        <li id="replyShare">
+            <a href="#">921 comments</a>
+        </li>
+        <li id="retzeet">
+            <a href="#">24 shared</a>
+        </li>
+        <li id="like">
+            <a href="#">100 hearts</a>
+        </li>
+        <li>
+            <a href="#">Up</a>
+        </li>
+    </ul>
 </body>
 </html>
