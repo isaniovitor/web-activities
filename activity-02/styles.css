@@ -5,6 +5,7 @@ body {
 * {
     list-style-type: none;
     text-decoration: none;
+    border: 1px solid red;
 }
 
 img {
@@ -38,6 +39,7 @@ p {
 .navChild a{
     width: 100%;
     color: rgb(15, 20, 25);
+    padding-left:  1px;
 }
 
 /* imageSection */
@@ -97,7 +99,7 @@ p {
 
 /* tzeet */
 .tzeet:hover {
-    background-color: rgba(249, 24, 128, 0.1);
+    background-color: rgba(249, 24, 128, 0.5);
 }
 
 .tzeetHeader {
@@ -152,3 +154,4 @@ p {
     background: rgba(249, 24, 128, 0.1);
     color: rgba(249, 24, 128, 1);
 }
+
