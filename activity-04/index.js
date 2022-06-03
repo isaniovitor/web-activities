@@ -1,50 +1,64 @@
-const counter = document.getElementById('counter');
-const button = document.getElementById('sendT');
+const inputs = document.getElementsByClassName('inputText');
+const counter = document.getElementsByClassName('counter');
+const button = document.getElementsByClassName('sendT');
 const menuTzeetbutton = document.getElementById('tzeet');
-const modal = document.getElementById('modal');
 const closeModal = document.getElementById('closeModel');
+const modal = document.getElementById('modal');
 
+let listInputs = [];
 
-console.log(menuTzeetbutton);
-// const myInput = document.getElementById('myInput');
+for (let i = 0; i < inputs.length; i++) {
+  listInputs.push({
+    input: inputs[i],
+    button: button[i],
+    counter: counter[i]
+  });
 
-// myModal.addEventListener('shown.bs.modal', () => {
-//   menuTzeetbutton.focus();
-// })
+  listInputs[i].input.onkeyup = function(){
+    console.log("0"); 
+    itsValid(this.value, listInputs[i]);
+   
+    this.style.height = "auto";
+    this.style.height = (this.scrollHeight) + "px";
+  }
+}
 
-function itsValid(value){
+function itsValid(value, input){
   var maxLength = 140;
-  counter.textContent = `${value.length}`;
+  input.counter.textContent = `${value.length}`;
 
   if(value.length > 0) {
-    counter.style.display = "block";
-    button.disabled = false;
+    input.counter.style.display = "block";
+    input.button.disabled = false;
   }else{
-    counter.style.display = "none";
-    button.disabled = true;
+    input.counter.style.display = "none";
+    input.button.disabled = true;
   }
 
   if(value.length >= maxLength - 40 && value.length <= maxLength)  {
-    counter.style.color = "rgb(255, 200, 0)";
+    input.counter.style.color = "rgb(255, 200, 0)";
   }else if(value.length >= maxLength) {
-    counter.style.color = "rgb(255, 0, 0)";
-    button.disabled = true;
+    input.counter.style.color = "rgb(255, 0, 0)";
+    input.button.disabled = true;
   }else{
-    counter.style.color = "black";
+    input.counter.style.color = "black";
   }
 
   return true;
 }
 
-document.getElementById('inputText').onkeyup = function(){
-    itsValid(this.value);
-    
-    this.style.height = "auto";
-    this.style.height = (this.scrollHeight) + "px";
-}
+// // console.log(inputs); 
+// for (let i = 0; i < inputs.length; i++) {
+//   inputs[i].onkeyup = function(){
+//     console.log("0"); 
+//     itsValid(this.value);
+   
+//     this.style.height = "auto";
+//     this.style.height = (this.scrollHeight) + "px";
+//   }
+// }
 
 menuTzeetbutton.onclick = function(){
-  console.log("po");
   modal.style.display = "block";
 }
 

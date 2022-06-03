@@ -93,6 +93,7 @@
         <main class="container col-10 col-sm-10 col-md-10 col-lg-7 order-1">
             <h1>Home</h1>
 
+            <!-- modal   -->
             <div id="modal" class="modal"  tabindex="-1">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -103,7 +104,7 @@
                     <div class="modal-body">
                         <div>
                             <div id="inputArea" class="d-flex flex-column">
-                                <textarea  id="inputText"  rows="1" placeholder="O que você está pensando" style="overflow: hidden; resize: none;" ></textarea>
+                                <textarea  class="inputText"  rows="1" placeholder="O que você está pensando" style="overflow: hidden; resize: none;" ></textarea>
                                 <span id="replyConfig">
                                     <i class="bi bi-globe2"></i>
                                     Everyone can reply
@@ -131,12 +132,12 @@
                                     </li>
                                 </ul>                     
                                 <div  class="d-flex flex-row justify-content-between align-items-center">
-                                    <p id="counter" class="p-3">0</p>
+                                    <p class="p-3 counter">0</p>
                                     <i class="bi bi-grip-vertical p-1"></i>
                                     <div class="d-flex justify-content-center align-self-center p-2">
                                         <i class="bi bi-plus-circle p-1"></i>
                                     </div>
-                                    <button type="button" id="sendT" class="btn btn-primary " disabled>Enviar</button>
+                                    <button type="button" class="btn btn-primary sendT" disabled>Enviar</button>
                                 </div>
                             </div>
                         </div>
@@ -145,11 +146,12 @@
                 </div>
             </div>
 
+            <!-- principal -->
             <div id="imageSection" class="d-flex justify-content-between align-self-center">
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"/>
                 <div class="col-11">
                     <div id="inputArea" class="d-flex flex-column">
-                        <textarea  id="inputText"  rows="1" placeholder="O que você está pensando" style="overflow: hidden; resize: none;" ></textarea>
+                        <textarea  class="inputText"  rows="1" placeholder="O que você está pensando" style="overflow: hidden; resize: none;" ></textarea>
                         <span id="replyConfig">
                             <i class="bi bi-globe2"></i>
                             Everyone can reply
@@ -177,12 +179,12 @@
                             </li>
                         </ul>                     
                         <div  class="d-flex flex-row justify-content-between align-items-center">
-                            <p id="counter" class="p-3">0</p>
+                            <p class="p-3 counter">0</p>
                             <i class="bi bi-grip-vertical p-1"></i>
                             <div class="d-flex justify-content-center align-self-center p-2">
                                 <i class="bi bi-plus-circle p-1"></i>
                             </div>
-                            <button type="button" id="sendT" class="btn btn-primary " disabled>Enviar</button>
+                            <button type="button" class="btn btn-primary sendT" disabled>Enviar</button>
                         </div>
                     </div>
                 </div>
