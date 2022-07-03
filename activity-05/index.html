@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <main>
+      <div class="mainContainer">
+        <img src="#" alt="logo">
+        <h5>Entre no Tzeet agora mesmo</h5>
+        <!-- c x pra -->
+
+        <form onsubmit="return registerUserFormValidation()">
+            <div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="email" placeholder="name@example.com" onchange="loginFormValidation()">
+                    <label for="email">Email</label>
+
+                    <div  id="emailError" class="invalid-feedback"></div>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="password" placeholder="Password"  onchange="loginFormValidation()">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+
+            <a href="#">Esqueceu a senha?</a><br>
+
+            <div class="buttonContainer">
+                <button type="submit" id="loginButton" class="btn btn-primary rounded-pill" disabled>Entrar</button>
+            </div>
+
+            <p>Não tem uma conta? <a href="registerUser.html">Inscreva-se</a></p>
+          </form> 
+      </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<template>
+  <!-- <router-view> -->
+  <v-container>
+    <v-card class="main elevation-6">
+      <v-row class="main">
+        <v-col
+          cols="12"
+          md="6"
+          class="main d-flex flex-column justify-center align-end blue rounded-br-xl"
+        >
+          <v-img src="../assets/login.png" width="100%" height="100px" />
+          <div
+            style="width: 100%"
+            class="white--text d-flex justify-start align-center pa-3"
+          >
+            <v-card-text class="white--text" style="width: fit-content">
+              <h3 class="text-center">Alredy Signed up?</h3>
+            </v-card-text>
+            <div class="main d-flex flex-column justify-center align-start">
+              <router-link to="/login">
+                <v-btn tile outlined dark>Log in</v-btn>
+              </router-link>
+            </div>
+          </div>
+        </v-col>
+        <v-col cols="12" md="6" class="d-flex justify-center align-center">
+          <v-card-text class="mt-12">
+            <h1 class="text-center mb-16">Login in to Your Account</h1>
+            <v-row align="center" justify="center">
+              <v-col cols="12" sm="8">
+                <v-row>
+                  <v-col cols="12" sm="6">
+                    <v-text-field
+                      v-model="fistName"
+                      :error-messages="fistNameErrors"
+                      label="First Name"
+                      required
+                      @input="$v.fistName.$touch()"
+                      @blur="$v.fistName.$touch()"
+                      outlined
+                      dense
+                      class="mt-4"
+                    />
+                  </v-col>
+                  <v-col cols="12" sm="6">
+                    <v-text-field
+                      v-model="lastName"
+                      :error-messages="lastNameErrors"
+                      label="Last Name"
+                      required
+                      @input="$v.lastName.$touch()"
+                      @blur="$v.lastName.$touch()"
+                      outlined
+                      dense
+                      class="mt-4"
+                    />
+                  </v-col>
+                </v-row>
+                <v-text-field
+                  v-model="email"
+                  :error-messages="emailErrors"
+                  label="E-mail"
+                  required
+                  @input="$v.email.$touch()"
+                  @blur="$v.email.$touch()"
+                  outlined
+                  dense
+                />
+                <v-text-field
+                  v-model="password"
+                  :error-messages="passwordErrors"
+                  label="Password"
+                  required
+                  @input="$v.password.$touch()"
+                  @blur="$v.password.$touch()"
+                  outlined
+                  dense
+                  type="password"
+                />
+                <v-row>
+                  <v-col cols="12" sm="7">
+                    <v-checkbox label="I Accept AAE" class="mt-n1" color="blue">
+                    </v-checkbox>
+                  </v-col>
+                  <v-col cols="12" sm="5">
+                    <span class="caption blue--text ml-n4"
+                      >Terms &Conditions</span
+                    >
+                  </v-col>
+                </v-row>
+                <v-btn color="blue" @click="submit" dark block tile
+                  >Sign up</v-btn
+                >
+              </v-col>
+            </v-row>
+          </v-card-text>
+        </v-col>
+      </v-row>
+    </v-card>
+  </v-container>
+  <!-- </router-view> -->
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+import { validationMixin } from "vuelidate";
+import { required, minLength, email } from "vuelidate/lib/validators";
+
+import Header from "@/components/global/Header.vue";
+import Footer from "@/components/global/Footer.vue";
+
+export default Vue.extend({
+  name: "Register",
+  mixins: [validationMixin],
+
+  data: () => ({
+    fistName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  }),
+
+  props: {
+    source: String,
+  },
+
+  validations: {
+    fistName: { required },
+    lastName: { required },
+    email: { required, email },
+    password: { required, minLength: minLength(8) },
+  },
+
+  computed: {
+    fistNameErrors() {
+      const errors: any[] = [];
+      if (!this.$v.fistName.$dirty) return errors;
+      // !this.$v.fistName && errors.push("Must be valid e-mail");
+      !this.$v.fistName.required && errors.push("Nome requiriod");
+      return errors;
+    },
+
+    lastNameErrors() {
+      const errors: any[] = [];
+      if (!this.$v.lastName.$dirty) return errors;
+      // !this.$v.lastName && errors.push("Must be valid e-mail");
+      !this.$v.lastName.required && errors.push("sobre is required");
+      return errors;
+    },
+
+    emailErrors() {
+      const errors: any[] = [];
+      if (!this.$v.email.$dirty) return errors;
+      !this.$v.email.email && errors.push("Must be valid e-mail");
+      !this.$v.email.required && errors.push("E-mail is required");
+      return errors;
+    },
+
+    passwordErrors() {
+      const errors: any[] = [];
+      if (!this.$v.password.$dirty) return errors;
+      !this.$v.password.minLength &&
+        errors.push("senha must be more then 8 characters long");
+      !this.$v.password.required && errors.push("senha is required.");
+      return errors;
+    },
+  },
+
+  methods: {
+    submit() {
+      this.$v.$touch();
+
+      if (!this.$v.$error) {
+        this.$router.push({ name: "login" });
+        this.$toast.success("Cadastro realizado com sucesso!", {
+          position: "bottom-right",
+          timeout: 3010,
+          closeOnClick: true,
+          pauseOnFocusLoss: true,
+          pauseOnHover: false,
+          draggable: true,
+          draggablePercent: 0.6,
+          showCloseButtonOnHover: false,
+          hideProgressBar: true,
+          closeButton: "button",
+          icon: true,
+          rtl: false,
+        });
+      }
+    },
+
+    clear() {
+      this.$v.$reset();
+      this.email = "";
+      this.password = "";
+      this.fistName = "";
+      this.lastName = "";
+    },
+  },
+});
+</script>
+
+<style scoped lang="scss">
+.v-application .rounded-bl-xl {
+  border-bottom-left-radius: 300px !important;
+}
+.v-application .rounded-br-xl {
+  border-bottom-right-radius: 300px !important;
+}
+.container {
+  max-width: none !important;
+  height: 100vh !important;
+
+  .main {
+    height: 100% !important;
+  }
+}
+</style>

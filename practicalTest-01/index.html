@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css"  href="globalStyles.css">
+  <link rel="stylesheet" type="text/css"  href="styles.css">
+  <title>Prova</title>
+</head>
+<body>
+  <main onload="chooseTypeOptions()">
+    <h1 id="totalBalance"></h1>
+
+    <form id="travelForm">
+        <div id="inputs">
+          <div>
+            <label for="transports">Meio de transporte</label>
+            <select id="transports" name="transports" onChange="transportsGlobalFunction()">
+              <option value="airplane" selected>Avião</option>
+              <option value="bus">Ônibus</option>
+            </select>  
+          </div>
+            
+          <div>
+            <label for="type">Tipo</label>
+            <select id="type" name="type" onchange="isBuyable(getTypeSelect(this.value))"></select>    
+          </div>
+  
+          <div>
+            <label for="roundTrip">Ida e volta</label>
+            <input id="roundTrip" name="roundTrip" onchange="roundTripGlobalFunction()" type="checkbox">
+          </div>
+        </div>
+
+        <button type="button" id="sendTravel" onclick="addTravel()">Enviar</button>
+    </form>
+
+    <table id="table">
+      <tbody  id="travelsTable">
+        <tr>
+          <th>Meio de transporte</th>
+          <th>Tipo</th>
+          <th>Ida e volta</th>
+          <th>Custo em pontos</th>
+        </tr>
+      </tbody>    
+    </table>
+
+    <div>
+      <h2 id="totalTravels"></h2>
+      <h2 id="totalSpent"></h2>
+    </div>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
