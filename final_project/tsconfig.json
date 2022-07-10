@@ -12,6 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
     "sourceMap": true,
+    "noEmitOnError": true, // Não mostra os erros de typescript quando compila
     "baseUrl": ".",
     "types": [
       "webpack-env"

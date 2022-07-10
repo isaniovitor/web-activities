@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <Header v-if="notIsLoginPage" />
-      <router-view />
+      <router-view style="height: 100%" />
       <Footer v-if="notIsLoginPage" />
     </v-main>
   </v-app>
@@ -27,7 +27,11 @@ export default Vue.extend({
 
   computed: {
     notIsLoginPage() {
-      return this.$route.name !== "login" && this.$route.name !== "register";
+      return (
+        this.$route.name !== "login" &&
+        this.$route.name !== "register" &&
+        this.$route.name !== "notFound"
+      );
     },
   },
 });

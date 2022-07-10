@@ -1,103 +1,53 @@
 <template>
   <v-col cols="2" rounded="0">
-    <v-list>
-      <v-list-group
-        v-for="item in items"
-        :key="item.title"
-        v-model="item.active"
-        no-action
-      >
-        <template v-slot:activator>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title"></v-list-item-title>
-          </v-list-item-content>
-        </template>
-
-        <v-list-item v-for="child in item.items" :key="child.title">
-          <v-list-item-content>
-            <!-- <v-container class="px-0" fluid> -->
-            <v-checkbox
-              id="oi"
-              v-model="checkbox"
-              :label="child.title"
-            ></v-checkbox>
-            <!-- </v-container> -->
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-group>
-    </v-list>
+    <v-btn @click="clearFilter" block color="red"> limpar </v-btn>
+    <v-checkbox
+      v-for="(check, i) in checkboxs"
+      :key="i"
+      id="1"
+      v-model="check.status"
+      @click="filter(check)"
+      :label="check.name"
+    ></v-checkbox>
   </v-col>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import { donationStore } from "../stores/donation";
 
 export default Vue.extend({
   name: "SideBar",
 
   data: () => ({
-    checkbox: true,
-    items: [
-      {
-        action: "mdi-ticket",
-        items: [{ title: "List Item" }],
-        title: "Attractions",
-      },
-      {
-        action: "mdi-silverware-fork-knife",
-        active: false,
-        items: [
-          { title: "Breakfast & brunch" },
-          { title: "New American" },
-          { title: "Sushi" },
-          { title: "Breakfast & brunch" },
-          { title: "New American" },
-          { title: "Sushi" },
-          { title: "Breakfast & brunch" },
-          { title: "New American" },
-          { title: "Sushi" },
-          { title: "Breakfast & brunch" },
-          { title: "New American" },
-          { title: "Sushi" },
-          { title: "Breakfast & brunch" },
-          { title: "New American" },
-          { title: "Sushi" },
-          { title: "Breakfast & brunch" },
-          { title: "New American" },
-          { title: "Sushi" },
-          { title: "Breakfast & brunch" },
-          { title: "New American" },
-          { title: "Sushi" },
-        ],
-        title: "Dining",
-      },
-      {
-        action: "mdi-school",
-        items: [{ title: "List Item" }],
-        title: "Education",
-      },
-      {
-        action: "mdi-human-male-female-child",
-        items: [{ title: "List Item" }],
-        title: "Family",
-      },
-      {
-        action: "mdi-bottle-tonic-plus",
-        items: [{ title: "List Item" }],
-        title: "Health",
-      },
-      {
-        action: "mdi-briefcase",
-        items: [{ title: "List Item" }],
-        title: "Office",
-      },
-      {
-        action: "mdi-tag",
-        items: [{ title: "List Item" }],
-        title: "Promotions",
-      },
+    checkboxs: [
+      { status: false, id: 1, name: "Vestuário" },
+      { status: false, id: 2, name: "Brinquedos" },
+      { status: false, id: 3, name: "Aparelhos eletrônicos" },
+      { status: false, id: 4, name: "Alimentos" },
+      { status: false, id: 5, name: "Leitura" },
     ],
+    store: donationStore(),
   }),
+
+  methods: {
+    filter(categorie: any) {
+      this.checkboxs.map((currentCategorie) => {
+        if (currentCategorie != categorie) {
+          currentCategorie.status = false;
+        }
+      });
+
+      this.store.getDonations(categorie.id);
+    },
+    clearFilter() {
+      this.checkboxs.map((categorie) => {
+        categorie.status = false;
+      });
+
+      this.store.getDonations();
+    },
+  },
 });
 </script>
 
