@@ -1,21 +1,4 @@
-body {
-    background-color: white;
-}
 
-* {
-    list-style-type: none !important;
-    text-decoration: none !important;
-    /* border: 1px solid red; */
-}
-
-img {
-    border-radius: 50%;
-}
-
-p {
-    margin: 0 !important;
-    padding: 0;
-}
 
 /* nav */
 nav {    
